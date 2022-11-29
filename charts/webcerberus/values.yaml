@@ -201,26 +201,28 @@ solr:
   image:
     registry: docker.io
     repository: bitnami/solr
-    tag: 8.11.2-debian-11-r44
+    tag: 8.11.2-debian-11-r37
 
   auth:
     ## @param auth.enabled Enable Solr authentication
     ##
     enabled: false
-
   ## @param coreNames Solr core names to be created
   ##
   coreNames:
     - persephone
-
   ## @param cloudEnabled Enable Solr cloud mode
   ##
   cloudEnabled: false
-
   ## @param cloudBootstrap Enable cloud bootstrap. It will be performed from the node 0.
   ##
   cloudBootstrap: false
-
+  ## @param collectionShards Number of collection shards
+  ##
+  collectionShards: 1
+  ## @param collectionReplicas Number of collection replicas
+  ##
+  collectionReplicas: 1
   ## @param replicaCount Number of solr replicas
   ##
   replicaCount: 1
