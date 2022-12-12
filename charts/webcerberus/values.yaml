@@ -42,12 +42,6 @@ containerSecurityContext:
 ## ref: https://kubernetes.io/docs/user-guide/persistent-volumes/
 ##
 persistence:
-  ## @param persistence.enabled Enable WebCerberus data persistence using PVC. If false, use emptyDir
-  ##
-  enabled: true
-  ## @param persistence.existingClaim Name of an existing PVC to use (only when deploying a single replica)
-  ##
-  existingClaim: ""
   ## @param persistence.storageClass PVC Storage Class for WebCerberus data volume
   ## If defined, storageClassName: <storageClass>
   ## If set to "-", storageClassName: "", which disables dynamic provisioning
@@ -55,25 +49,14 @@ persistence:
   ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
   ##   GKE, AWS & OpenStack)
   ##
-  storageClass: ""
+  storageClassName: "default"
   ## @param persistence.accessModes PVC Access modes
   ##
   accessModes:
     - ReadWriteOnce
   ## @param persistence.size PVC Storage Request for WebCerberus data volume
   ##
-  size: 8Gi
-  ## @param persistence.annotations Annotations for the PVC
-  ##
-  annotations: {}
-  ## @param persistence.selector Selector to match an existing Persistent Volume for WebCerberus's data PVC
-  ## If set, the PVC can't have a PV dynamically provisioned for it
-  ## E.g.
-  ## selector:
-  ##   matchLabels:
-  ##     app: my-app
-  ##
-  selector: {}
+  size: 10Gi
 
 
 ingresses:
