@@ -30,6 +30,9 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      {{- if .Values.nodeSelector }}
+      nodeSelector: {{ .Values.nodeSelector }}
+      {{- end }}
       initContainers:
         - name: volume-permissions
           image: "{{ .Values.persephoneshell.image.repository }}:{{ .Values.persephoneshell.image.tag }}"
@@ -39,7 +42,7 @@ spec:
           args:
             - -ec
             - |
-              mkdir -p /opt/app/data/BlastDB
+              mkdir -p {{ .Values.env.ENVPSN_Blast_DB }}
               mkdir -p /opt/app/data/BlastDB/openplants
               mkdir -p /opt/app/data/Blast
               mkdir -p /opt/app/data/Blast/bin
@@ -161,11 +164,13 @@ spec:
               exec:
                 command: ["sleep","90"]
   volumeClaimTemplates:
-  - metadata:
-      name: psn-data
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClassName: managed-csi
-      resources:
-        requests:
-          storage: 10Gi
+    - metadata:
+        name: psn-data
+      spec:
+        accessModes:
+        {{- range .Values.persistence.accessModes }}
+          - {{ . | quote }}
+        {{- end }}
+        resources:
+          requests:
+            storage: {{ .Values.persistence.size | quote }}
