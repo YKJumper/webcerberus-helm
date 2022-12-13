@@ -1,8 +1,8 @@
 <!--- app-name: WebCerberus application -->
 
-## Ready Helm Chart with Containers from DockerHub.io
+## Ready Helm Chart with Containers from Docker Hub
 
-This Helm Chart has been configured to pull the Container Images from the DockerHub Public Repository.
+This Helm Chart has been configured to pull the Container Images from the Docker Hub Public Repository.
 The following command allows you to download and install all the charts from this repository.
 
 ```console
