@@ -20,7 +20,7 @@ $ helm install my-release persephone-helm/webcerberus
 - PV provisioner support in the underlying infrastructure
 - ReadWriteMany volumes for deployment scaling
 - MariaDB database
-- Licence for WebCerberus application
+- Licence for WebCerberus application as Kubernetes configMap 'webcerberus-license'
 - (Optional) TLS Certificate for Ingress service
 
 ## Installing the Chart
