@@ -4,9 +4,6 @@
 
 This Helm Chart has been configured to pull the Container Images from the DockerHub Public Repository.
 The following command allows you to download and install all the charts from this repository.
-```bash
-$ helm repo add persephone-helm https://ykjumper.github.io/webcerberus-helm/
-```
 
 ```console
 $ helm repo add my-repo https://ykjumper.github.io/webcerberus-helm/
