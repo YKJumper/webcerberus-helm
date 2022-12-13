@@ -7,7 +7,6 @@ The following command allows you to download and install all the charts from thi
 ```bash
 $ helm repo add persephone-helm https://ykjumper.github.io/webcerberus-helm/
 ```
-## TL;DR
 
 ```console
 $ helm repo add my-repo https://ykjumper.github.io/webcerberus-helm/
@@ -46,7 +45,7 @@ To uninstall/delete the `my-release` statefulset:
 $ helm delete my-release
 ```
 
-The command removes all the Kubernetes components associated with the chart and deletes the release. Use the option `--purge` to delete all history too.
+The command removes all the Kubernetes components associated with the chart and deletes the release. Use the option `--purge` to delete all history too. Remove manually persistent volumes created by the release.
 
 ## Parameters
 
