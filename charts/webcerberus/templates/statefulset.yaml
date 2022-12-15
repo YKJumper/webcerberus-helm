@@ -47,6 +47,9 @@ spec:
           volumeMounts:
             - name: psn-data
               mountPath: /opt/app/data
+            - name: webcerberus-license
+              mountPath: /opt/app/webcerberus.lic
+              subPath: webcerberus.lic
       containers:
         - name: webcerberus
           image: "{{ .Values.webcerberus.image.repository }}:{{ .Values.webcerberus.image.tag }}"
@@ -162,9 +165,10 @@ spec:
               exec:
                 command: ["sleep","90"]
       volumes:
-        - name: "webcerberus-license"
+        - name: webcerberus-license
           configMap:
             name: webcerberus-license
+            defaultMode: 0755
   volumeClaimTemplates:
     - metadata:
         name: psn-data
