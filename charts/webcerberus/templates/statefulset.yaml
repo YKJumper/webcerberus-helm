@@ -162,7 +162,7 @@ spec:
               exec:
                 command: ["sleep","90"]
       volumes:
-        - name: webcerberus-license
+        - name: "webcerberus-license"
           configMap:
             name: webcerberus-license
   volumeClaimTemplates:
